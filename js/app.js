@@ -359,14 +359,15 @@
         return;
       }
 
-      const payload = {
+      const payload = JSON.stringify({
+        name: fullName,
         fullName: fullName,
         institution: institution,
         email: email,
         isTeam: isTeam,
         teamDetails: teamDetails,
         timestamp: new Date().toISOString()
-      };
+      });
 
       // User clicked "Complete Registration": hide success/error and show only loading banner
       hideBanner(DOM.regStatusSuccess);
@@ -385,19 +386,40 @@
           return;
         }
 
-        // Send POST request with text/plain to bypass CORS preflight
-        const response = await fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8"
-          },
-          body: JSON.stringify(payload)
-        });
+        try {
+          // Send CORS-safe Simple Request with redirect: follow
+          const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: payload,
+            redirect: "follow"
+          });
 
-        if (response.ok) {
-          showRegSuccess();
-        } else {
-          throw new Error(`Server responded with HTTP status ${response.status}`);
+          // If readable response is returned, check status
+          if (response.ok || response.type === "opaque") {
+            showRegSuccess();
+          } else {
+            throw new Error(`Non-OK response with HTTP status ${response.status}`);
+          }
+        } catch (corsOrRedirectErr) {
+          console.warn("Direct fetch redirect restricted by browser CORS, attempting no-cors mode fallback:", corsOrRedirectErr);
+          // Fallback for strict browsers blocking Google Apps Script 302 CORS redirect:
+          try {
+            await fetch(webhookUrl, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+              },
+              body: payload
+            });
+            showRegSuccess();
+          } catch (networkErr) {
+            console.error("no-cors registration fallback failed:", networkErr);
+            showRegError("Could not connect to the registration webhook. Please check your internet connection or email " + (config.CONTACT_EMAIL || "gabriel.jimenez@icm-institute.org") + ".");
+          }
         }
       } catch (err) {
         console.error("Registration submission error:", err);

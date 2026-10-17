@@ -12,7 +12,7 @@ const CONFIG = {
   REGISTRATION_DEADLINE: "2026-11-09T23:59:59",
 
   // Final submission deadline in ISO format
-  SUBMISSION_DEADLINE: "2026-11-24T23:59:59",
+  SUBMISSION_DEADLINE: "2026-11-14T23:59:59",
 
   // Google Apps Script Webhook URL for handling registration form submissions.
   // Replace with your deployed Google Apps Script Web App URL.
