@@ -401,7 +401,7 @@
         }
       } catch (err) {
         console.error("Registration submission error:", err);
-        showRegError("Could not connect to the registration webhook. Please check your internet connection or email " + (config.CONTACT_EMAIL || "quant@institutducerveau.org") + ".");
+        showRegError("Could not connect to the registration webhook. Please check your internet connection or email " + (config.CONTACT_EMAIL || "gabriel.jimenez@icm-institute.org") + ".");
       } finally {
         hideBanner(DOM.regStatusLoading);
         DOM.btnSubmitReg.disabled = false;
