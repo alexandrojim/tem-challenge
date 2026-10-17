@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEM Axon & Myelin Segmentation Challenge | Paris Brain Institute (ICM)</title>
+  
+  <meta name="description" content="Official academic challenge website for the TEM Axon & Myelin 2-Class Segmentation Challenge at SIPAIM 2026, hosted by the Paris Brain Institute (Institut du Cerveau - ICM).">
+  <meta name="keywords" content="TEM, Axon, Myelin, Segmentation, Paris Brain Institute, ICM, SIPAIM, Deep Learning, g-ratio, Electron Microscopy">
+  <meta name="author" content="ICM.Quant Microstructure Lab, Paris Brain Institute">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="TEM Axon & Myelin Segmentation Challenge | ICM Paris">
+  <meta property="og:description" content="2-Class Transmission Electron Microscopy (TEM) Challenge for nanoscale axon and myelin segmentation and g-ratio extraction at SIPAIM 2026.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- KaTeX CSS for LaTeX math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Notification Bar -->
+  <aside class="top-notice-bar" aria-label="Important Announcement">
+    <div class="container top-notice-content">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="notice-pill">SIPAIM 2026 Challenge</span>
+        <span>Registration is open for the Transmission Electron Microscopy Benchmark</span>
+      </div>
+      <div class="top-deadline-counter" id="top-deadline-counter">
+        <span>Registration Deadline:</span>
+        <strong id="header-countdown-timer">Nov 9, 2026</strong>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      
+      <!-- Responsive Logos Slot -->
+      <div class="header-logos">
+        <a href="#challenge" class="logo-link" title="Institut du Cerveau - Paris Brain Institute">
+          <img src="images/icm-logo.png" alt="Paris Brain Institute (ICM)" class="logo-img">
+        </a>
+        <div class="logo-divider"></div>
+        <a href="#challenge" class="logo-link" title="ICM.Quant Microstructure Lab">
+          <img src="images/lab-logo.png" alt="ICM.Quant Lab" class="logo-img">
+        </a>
+        <div class="logo-divider"></div>
+        <a href="#challenge" class="logo-link" title="SIPAIM 2026 Conference">
+          <img src="images/sipaim-logo.png" alt="SIPAIM 2026" class="logo-img">
+        </a>
+      </div>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#challenge" class="nav-link active" id="nav-challenge">Challenge</a></li>
+          <li><a href="#data" class="nav-link" id="nav-data">Dataset</a></li>
+          <li><a href="#submission" class="nav-link" id="nav-submission">Metrics &amp; Submission</a></li>
+          <li><a href="#winners" class="nav-link" id="nav-winners">Winners</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action & Mobile Menu Toggle -->
+      <div class="header-actions">
+        <a href="#challenge" class="header-cta-btn">
+          <span>Register Now</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      
+      <div class="hero-badge-row">
+        <span class="hero-badge coral">2-Class TEM Segmentation</span>
+        <span class="hero-badge">Paris Brain Institute (ICM)</span>
+        <span class="hero-badge">SIPAIM 2026 Special Session</span>
+      </div>
+
+      <h1 class="hero-title">TEM Axon &amp; Myelin Segmentation Challenge</h1>
+      <p class="hero-subtitle">
+        An international scientific benchmark for high-throughput, nanometer-resolution delineation of axons and myelin sheaths from Transmission Electron Microscopy micrographs to automate $g$-ratio biomarker discovery.
+      </p>
+
+      <!-- Key Metadata Chips -->
+      <div class="hero-chips-grid">
+        <div class="hero-chip-card">
+          <div class="chip-label">Imaging Modality</div>
+          <div class="chip-value">TEM (80–120 kV, 4 nm/px)</div>
+        </div>
+        <div class="hero-chip-card">
+          <div class="chip-label">Target Classes</div>
+          <div class="chip-value">Axon &amp; Myelin Sheath (2 Classes)</div>
+        </div>
+        <div class="hero-chip-card">
+          <div class="chip-label">Evaluation Metrics</div>
+          <div class="chip-value">Dice + $\text{HD}_{95}$ + $\Delta g$-ratio</div>
+        </div>
+        <div class="hero-chip-card">
+          <div class="chip-label">Registration Deadline</div>
+          <div class="chip-value" id="hero-deadline-text">Nov 09, 2026 (23:59 CET)</div>
+        </div>
+      </div>
+
+      <!-- Hero Actions -->
+      <div class="hero-actions">
+        <a href="#challenge" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          <span>Register to Participate</span>
+        </a>
+        <a href="#data" class="btn-outline-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Dataset &amp; Downloads</span>
+        </a>
+        <a href="#submission" class="btn-outline-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Submission Protocol</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 1: Challenge & Registration (#challenge)
+       ======================================================================== -->
+  <section class="section" id="challenge">
+    <div class="container">
+      
+      <div class="section-header-block">
+        <div class="section-category">Section 01 / Overview &amp; Entry</div>
+        <h2 class="section-title">Challenge Overview &amp; Registration</h2>
+        <p class="section-desc">
+          Review the scientific background, clinical motivation, and critical dates, then complete the mandatory challenge registration below.
+        </p>
+      </div>
+
+      <div class="two-col-grid">
+        
+        <!-- Left Column: Dynamic Markdown Render (content/challenge.md) -->
+        <article class="markdown-container" id="challenge-content">
+          <div style="padding: 40px; text-align: center; color: var(--icm-text-muted);">
+            <em>Loading challenge overview from content/challenge.md...</em>
+          </div>
+        </article>
+
+        <!-- Right Column: Interactive Registration Card -->
+        <aside>
+          <div class="registration-card" id="registration-card">
+            
+            <div class="registration-card-header">
+              <span class="reg-badge">Mandatory Step</span>
+              <h3 class="reg-card-title">Challenge Registration</h3>
+              <p class="reg-card-subtitle">Register to receive dataset access and submit predictions.</p>
+            </div>
+
+            <!-- Auto-Closed Notice (Shown when past REGISTRATION_DEADLINE) -->
+            <div class="reg-closed-notice" id="reg-closed-notice">
+              <strong>Registration Closed:</strong> The registration deadline (Nov 9, 2026) has passed. If you need exceptional access, please contact the organizers.
+            </div>
+
+            <!-- Interactive Form -->
+            <form id="registration-form" novalidate>
+              
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="reg-fullname" class="form-label">Full Name <span class="required-star">*</span></label>
+                <input type="text" id="reg-fullname" name="fullName" class="form-input" placeholder="e.g. Dr. Marie Curie" required>
+              </div>
+
+              <!-- Institution / Affiliation -->
+              <div class="form-group">
+                <label for="reg-institution" class="form-label">Institution / Affiliation <span class="required-star">*</span></label>
+                <input type="text" id="reg-institution" name="institution" class="form-input" placeholder="e.g. Sorbonne Université / ICM" required>
+              </div>
+
+              <!-- Contact Email -->
+              <div class="form-group">
+                <label for="reg-email" class="form-label">Contact Email <span class="required-star">*</span></label>
+                <input type="email" id="reg-email" name="email" class="form-input" placeholder="marie.curie@sorbonne-universite.fr" required>
+              </div>
+
+              <!-- Team Registration Checkbox -->
+              <div class="form-group">
+                <label class="team-checkbox-wrapper">
+                  <input type="checkbox" id="reg-is-team" name="isTeam" class="custom-checkbox">
+                  <span class="checkbox-text">I am registering on behalf of a team</span>
+                </label>
+
+                <!-- Conditional Smooth Reveal for Team Details -->
+                <div class="team-details-slider" id="team-details-slider">
+                  <label for="reg-team-details" class="form-label" style="font-size: 0.8rem; margin-top: 8px;">
+                    Team Name &amp; Members
+                  </label>
+                  <input type="text" id="reg-team-details" name="teamDetails" class="form-input" placeholder="e.g. Team NeuroVision: Alice Smith, Bob Jones">
+                  <span style="font-size: 0.725rem; color: var(--icm-text-light); margin-top: 4px; display: block;">
+                    Used to match registrations to the final submission .zip package.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Form Status Alerts (Loading / Success / Error) -->
+              <div class="form-status-alert loading" id="reg-status-loading" hidden style="display: none !important;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+                <span>Submitting registration to Google Sheets...</span>
+              </div>
+
+              <div class="form-status-alert success" id="reg-status-success" hidden style="display: none !important;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Registration Received!</strong> Welcome to the challenge. You are cleared for data download and submission.</span>
+              </div>
+
+              <div class="form-status-alert error" id="reg-status-error" hidden style="display: none !important;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span id="reg-error-message">Submission failed. Please check your connection or contact the organizers.</span>
+              </div>
+
+              <!-- Submit CTA -->
+              <button type="submit" class="btn-primary btn-submit-reg" id="btn-submit-registration">
+                <span>Complete Registration</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+
+            </form>
+
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: Dataset (#data)
+       ======================================================================== -->
+  <section class="section section-alt" id="data">
+    <div class="container">
+      
+      <div class="section-header-block">
+        <div class="section-category">Section 02 / Ultrastructural Data</div>
+        <h2 class="section-title">TEM Dataset &amp; Download Portal</h2>
+        <p class="section-desc">
+          High-resolution 80–120 kV Transmission Electron Microscopy micrographs featuring 2-class annotations: Axons and Myelin Sheaths.
+        </p>
+      </div>
+
+      <!-- Prominent Data Download Card -->
+      <div class="data-cta-card">
+        <div class="data-card-grid">
+          
+          <div class="data-info-side">
+            <h3>ICM OneDrive Dataset Repositories</h3>
+            <p>
+              Access the curated training cohort with expert manual pixel annotations, as well as the unannotated test set upon release.
+            </p>
+            
+            <div class="spec-pills-row">
+              <span class="spec-pill"><span class="spec-pill-dot dot-axon"></span> Class 1: Axon (Red)</span>
+              <span class="spec-pill"><span class="spec-pill-dot dot-myelin"></span> Class 2: Myelin (Blue)</span>
+              <span class="spec-pill"><span class="spec-pill-dot dot-bg"></span> Class 0: Background</span>
+              <span class="spec-pill">Resolution: 3.8–5.5 nm/px</span>
+            </div>
+          </div>
+
+          <div class="data-buttons-side">
+            <!-- Training / Validation Dataset Link -->
+            <a href="#" id="btn-train-download" class="btn-data-download train" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Training &amp; Validation Data (ICM OneDrive)</span>
+            </a>
+
+            <!-- Test Dataset Link (Toggled via CONFIG.IS_TEST_DATA_RELEASED) -->
+            <a href="#" id="btn-test-download" class="btn-data-download test disabled" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span id="test-download-label">Test Dataset (Coming Soon - Nov 10, 2026)</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dynamic Markdown Content (content/data.md) -->
+      <article class="markdown-container" id="data-content">
+        <div style="padding: 40px; text-align: center; color: var(--icm-text-muted);">
+          <em>Loading dataset specifications from content/data.md...</em>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 3: Metrics & Submission (#submission)
+       ======================================================================== -->
+  <section class="section" id="submission">
+    <div class="container">
+      
+      <div class="section-header-block">
+        <div class="section-category">Section 03 / Evaluation &amp; Upload</div>
+        <h2 class="section-title">Evaluation Metrics &amp; Submission</h2>
+        <p class="section-desc">
+          Mathematical formulation of segmentation overlap ($\text{Dice}$), boundary error ($\text{HD}_{95}$), and clinical morphological biomarker error ($\Delta g$-ratio).
+        </p>
+      </div>
+
+      <div class="two-col-grid">
+        
+        <!-- Left Column: Dynamic Markdown Render (content/submission.md) -->
+        <article class="markdown-container" id="submission-content">
+          <div style="padding: 40px; text-align: center; color: var(--icm-text-muted);">
+            <em>Loading evaluation metrics &amp; guidelines from content/submission.md...</em>
+          </div>
+        </article>
+
+        <!-- Right Column: Interactive Pre-Submission Checklist & OneDrive CTA -->
+        <aside>
+          <div class="submission-sidebar-card">
+            
+            <h3>Pre-Submission Checklist</h3>
+            <p style="font-size: 0.85rem; color: var(--icm-text-muted);">
+              Ensure all 3 required deliverables are verified before uploading your package.
+            </p>
+
+            <div class="checklist-progress-bar-wrap">
+              <div class="progress-header">
+                <span>Verification Progress</span>
+                <span id="checklist-counter-text">0 of 3 Verified</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="checklist-progress-fill"></div>
+              </div>
+            </div>
+
+            <!-- Interactive Checklist Items -->
+            <div class="checklist-container">
+              <label class="checklist-item" id="check-item-1">
+                <input type="checkbox" class="checklist-checkbox" id="check-box-1">
+                <span class="checklist-label">
+                  <strong>1. Test Set Predictions:</strong> Single-channel PNG masks in <code>predictions/</code> with label values {0, 1, 2}.
+                </span>
+              </label>
+
+              <label class="checklist-item" id="check-item-2">
+                <input type="checkbox" class="checklist-checkbox" id="check-box-2">
+                <span class="checklist-label">
+                  <strong>2. Method Proposal PDF:</strong> 2–4 page scientific paper in <code>paper/</code> (SIPAIM format).
+                </span>
+              </label>
+
+              <label class="checklist-item" id="check-item-3">
+                <input type="checkbox" class="checklist-checkbox" id="check-box-3">
+                <span class="checklist-label">
+                  <strong>3. Replicable Code:</strong> Source code, environment file, and run script in <code>code/</code>.
+                </span>
+              </label>
+            </div>
+
+            <!-- Upload to ICM OneDrive File Request CTA -->
+            <a href="#" id="btn-upload-submission" class="btn-upload-onedrive" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Upload to ICM OneDrive</span>
+            </a>
+
+            <p class="upload-notice-text">
+              Archive directory as <code>submission_[TeamOrAuthor].zip</code>.<br>
+              Deadline: <strong>November 24, 2026 (23:59:59 CET)</strong>.
+            </p>
+
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 4: Winners (#winners)
+       ======================================================================== -->
+  <section class="section section-alt" id="winners">
+    <div class="container">
+      
+      <div class="section-header-block">
+        <div class="section-category">Section 04 / Results &amp; Awards</div>
+        <h2 class="section-title">Official Leaderboard &amp; Winners</h2>
+        <p class="section-desc">
+          Official ranking, award distinctions, and validated metric scores for all participating research groups.
+        </p>
+      </div>
+
+      <!-- State A: Winners Pending Banner (Shown when CONFIG.WINNERS_ANNOUNCED: false) -->
+      <div class="winners-banner-pending" id="winners-banner-pending">
+        <div class="pending-trophy-icon">🏆</div>
+        <h3 class="pending-title">Winners will be announced at SIPAIM 2026</h3>
+        <p class="pending-desc">
+          Submissions are currently under independent validation by the ICM.Quant team on high-performance compute clusters. Official awards, oral presentation selections, and certificates will be revealed live during the conference session.
+        </p>
+        <span class="sipaim-badge-gold">Award Ceremony • SIPAIM 2026</span>
+      </div>
+
+      <!-- State B: Active Podium UI (Shown when CONFIG.WINNERS_ANNOUNCED: true) -->
+      <div class="podium-container" id="winners-podium-container" style="display: none;">
+        
+        <!-- 2nd Place -->
+        <div class="podium-card second">
+          <div class="podium-medal">🥈</div>
+          <span class="podium-rank-badge badge-silver">2nd Place • Silver</span>
+          <h4 class="podium-team-name">AxonFormer</h4>
+          <p class="podium-affiliation">Sorbonne Université / ICM</p>
+          <div class="podium-score">0.921</div>
+          <div class="podium-score-label">Mean Dice Score</div>
+        </div>
+
+        <!-- 1st Place -->
+        <div class="podium-card first">
+          <div class="podium-medal">🥇</div>
+          <span class="podium-rank-badge badge-gold">1st Place • Grand Champion</span>
+          <h4 class="podium-team-name">MyeloVision Net</h4>
+          <p class="podium-affiliation">BioMed AI Lab, ETH Zürich</p>
+          <div class="podium-score">0.934</div>
+          <div class="podium-score-label">Mean Dice Score</div>
+        </div>
+
+        <!-- 3rd Place -->
+        <div class="podium-card third">
+          <div class="podium-medal">🥉</div>
+          <span class="podium-rank-badge badge-bronze">3rd Place • Bronze</span>
+          <h4 class="podium-team-name">TEM-SwinUNet</h4>
+          <p class="podium-affiliation">Johns Hopkins University</p>
+          <div class="podium-score">0.908</div>
+          <div class="podium-score-label">Mean Dice Score</div>
+        </div>
+
+      </div>
+
+      <!-- Dynamic Markdown Render (content/winners.md) -->
+      <article class="markdown-container" id="winners-content">
+        <div style="padding: 40px; text-align: center; color: var(--icm-text-muted);">
+          <em>Loading leaderboard details from content/winners.md...</em>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <div class="footer-about">
+          <h4>TEM Axon &amp; Myelin Challenge</h4>
+          <p>
+            An academic initiative organized by the ICM.Quant Microstructure Lab at the Paris Brain Institute (Institut du Cerveau - ICM) in partnership with the SIPAIM 2026 International Symposium.
+          </p>
+          <div class="footer-logos">
+            <img src="images/icm-logo.png" alt="ICM Logo" class="footer-logo-img">
+            <img src="images/lab-logo.png" alt="ICM.Quant Logo" class="footer-logo-img">
+            <img src="images/sipaim-logo.png" alt="SIPAIM Logo" class="footer-logo-img">
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#challenge">Challenge &amp; Overview</a></li>
+            <li><a href="#challenge">Registration Form</a></li>
+            <li><a href="#data">Dataset Download</a></li>
+            <li><a href="#submission">Metrics &amp; Submission</a></li>
+            <li><a href="#winners">Leaderboard &amp; Winners</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Scientific Inquiries</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:quant@institutducerveau.org">quant@institutducerveau.org</a></li>
+            <li><a href="https://institutducerveau.org" target="_blank" rel="noopener">institutducerveau.org</a></li>
+            <li><a href="https://sipaim.org" target="_blank" rel="noopener">sipaim.org</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Institut du Cerveau (ICM) • All Rights Reserved.</div>
+        <div>Built for GitHub Pages deployment • Vanilla HTML5, CSS3, ES6 JavaScript</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+
+  <!-- External Libraries: Marked.js and KaTeX -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Application Configuration & Logic -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
