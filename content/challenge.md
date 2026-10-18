@@ -16,7 +16,7 @@ This challenge focuses on the accurate segmentation of two biologically meaningf
 
 1. **Register Your Participation (Individual or Team):** Complete the registration form on this page before **November 9, 2026 (23:59 CET)**. If you are participating as a team, check the team box and indicate your team name so we can link your registration to your final submission.
 2. **Download the Training & Validation Dataset:** Access the annotated Mouse Corpus Callosum TEM dataset via the **Dataset** section.
-3. **Develop Your Segmentation Pipeline:** Train and validate your 2-class segmentation model (Axon vs. Myelin) ensuring full reproducibility.
+3. **Develop Your Segmentation Pipeline:** Train and validate your instance segmentation model for axon and myelin ensuring full reproducibility.
 4. **Submit Code, Method Report, and Test Predictions:** Upload your final `.zip` package through our Paris Brain Institute (ICM) OneDrive submission portal before the submission deadline.
 
 ---
