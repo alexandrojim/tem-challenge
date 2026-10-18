@@ -12,7 +12,7 @@ Although modern TEM platforms can acquire large, high-resolution datasets spanni
 
 ## 2. How to Participate
 
-1. **Register Your Participation (Individual or Team):** Complete the registration form on this page before **November 9, 2026 ($23:59\text{ UTC}$)**. If you are participating as a team, check the team box and indicate your team name so we can link your registration to your final submission.
+1. **Register Your Participation (Individual or Team):** Complete the registration form on this page before **November 9, 2026 (23:59 CET)**. If you are participating as a team, check the team box and indicate your team name so we can link your registration to your final submission.
 2. **Download the Training & Validation Dataset:** Access the annotated Mouse Corpus Callosum TEM dataset via the **Dataset** section.
 3. **Develop Your Segmentation Pipeline:** Train and validate your 2-class segmentation model (Axon vs. Myelin) ensuring full reproducibility.
 4. **Submit Code, Method Report, and Test Predictions:** Upload your final `.zip` package through our Paris Brain Institute (ICM) OneDrive submission portal before the submission deadline.
@@ -24,7 +24,11 @@ Although modern TEM platforms can acquire large, high-resolution datasets spanni
 | Milestone | Date | Status |
 | :--- | :--- | :--- |
 | **Challenge Launch & Data Release** | October 2026 | Open |
-| **Registration Deadline** | **November 9, 2026 ($23:59\text{ UTC}$)** | **Active** |
-| **Unlabeled Test Dataset Release** | TBA | Upcoming |
-| **Final Submission Deadline (Code + PDF + Test Masks)** | TBA | Upcoming |
+| **Registration Deadline** | November 9, 2026 (23:59 CET) | **Active** |
+| **Unlabeled Test Dataset Release** | November 9, 2026 (23:59 CET) | Upcoming |
+| **Final Submission Deadline** | November 13, 2026 (23:59 CET) | Upcoming |
 | **Winner Announcement & SIPAIM Session** | SIPAIM Conference | Upcoming |
+
+## 4.Award & Presentation Requirement
+
+While challenge participation is open to all researchers and students worldwide, at least one member of the winning team must be registered for the **SIPAIM Main Conference (November 18–20, 2026)** or the **SIPAIM Workshop (November 16, 2026)** to officially claim the award and present their methodology during the challenge session.
