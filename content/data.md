@@ -4,7 +4,7 @@
 
 This dataset comprises a curated collection of **608 minimally processed, high-resolution Transmission Electron Microscopy (TEM) images** acquired from the corpus callosum (white matter) of mouse (*Mus musculus*) brain tissue at the **Paris Brain Institute (Institut du Cerveau - ICM)**.
 
-The dataset was assembled to support the development and benchmarking of deep-learning and image-processing models for the automatic segmentation of axons and their surrounding myelin sheaths.
+The dataset was assembled to support the development and benchmarking of deep-learning and image-processing models for the automatic paired instance segmentation of axons and their surrounding myelin sheaths.
 
 | Item | Specification |
 | :--- | :--- |
@@ -13,28 +13,29 @@ The dataset was assembled to support the development and benchmarking of deep-le
 | **Species** | Mouse (*Mus musculus*) |
 | **Total Images** | $608$ single-channel grayscale micrographs |
 | **Annotated Ground-Truth Subset** | $157$ images ($\approx 25.8\%$ of the collection, expanding progressively) |
-| **Target Foreground Classes** | **2 Classes:** Axons and Myelin sheaths |
-| **Intended Use** | Supervised, semi-supervised, or self-supervised segmentation training & evaluation |
+| **Annotation Format** | **Paired Instance Masks (`uint16`):** Individual Axons (`X`) and paired Myelin sheaths (`X + 1`), plus Artifacts (`1`) |
+| **Intended Use** | Supervised, semi-supervised, or self-supervised instance segmentation training & evaluation |
 
 ---
 
-## 2. Target Classes & Topological Nesting
+## 2. Instance Annotation Encoding & Topological Nesting
 
-At TEM resolution, each myelinated fiber exhibits high contrast between the lipid-rich, electron-dense myelin sheath (dark) and the enclosed axoplasm (lighter). Ground-truth masks use the following integer label encoding:
+At TEM resolution, each myelinated fiber exhibits high contrast between the lipid-rich, electron-dense myelin sheath (dark) and the enclosed axoplasm (lighter). Ground-truth masks are stored as 16-bit unsigned integer (`uint16`) arrays using the following paired instance label encoding:
 
-| Label ID | Semantic Class | Morphological Description |
+| Label ID | Class / Instance Role | Morphological Description |
 | :--- | :--- | :--- |
-| **`0`** | **Background / Extra-axonal Space** | Surrounding neuropil and tissue matrix between myelinated fibers |
-| **`1`** | **Axon** | Cross-sections of axoplasm appearing as lighter, roughly circular internal regions |
-| **`2`** | **Myelin Sheath** | Concentric, electron-dense (dark) rings of tightly wrapped membrane lamellae enclosing each axon |
+| **`0`** | **Background / Extra-axonal Space** | Surrounding neuropil and unmyelinated tissue matrix between fibers |
+| **`1`** | **Artifacts (Ignored)** | Histological or imaging artifacts (excluded from training loss and test evaluation) |
+| **`X` (Even integer $\ge 2$)** | **Axon Instance (e.g., `14`)** | Cross-section of an individual axoplasm compartment appearing as a lighter, roughly circular internal region |
+| **`X + 1` (Odd integer $\ge 3$)** | **Paired Myelin Instance (e.g., `15`)** | Concentric, electron-dense (dark) ring of tightly wrapped membrane lamellae enclosing Axon `X` |
 
-> **Topological Note:** Because each myelin ring wraps around exactly one axon, **Class 1 (Axon)** and **Class 2 (Myelin Sheath)** form strictly nested structures. Preserving this topological nesting is crucial both for segmentation post-processing and for instance-level morphometric evaluation.
+> **Paired Topological Rule:** Because each myelin ring wraps around a single axon, every myelinated fiber is encoded as a strictly linked **`(X, X + 1)` instance pair**, where `X` is an even integer ($\ge 2$) representing the axon and `X + 1` is the consecutive odd integer representing its surrounding myelin sheath (for example, if an axon is labeled `14`, its myelin sheath is labeled `15`). Pixels labeled **`1` (Artifacts)** are not considered during scoring.
 
 ---
 
 ## 3. Image Acquisition & Technical Specifications
 
-All micrographs were acquired on a transmission electron microscope operated in imaging mode using an AMT NS12 camera system. The acquisition parameters below are read directly from the embedded metadata:
+All micrographs were acquired on a transmission electron microscope operated in imaging mode using an AMT NS12 camera system. The acquisition parameters below are read directly from the embedded metadata.
 
 | Parameter | Value |
 | :--- | :--- |

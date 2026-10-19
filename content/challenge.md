@@ -8,7 +8,7 @@ The corpus callosum, the largest white-matter commissural tract in the mammalian
 
 Recent advances in TEM acquisition technologies have enabled the generation of large-scale, high-resolution datasets containing thousands of individual fibers. However, extracting biologically meaningful measurements from these images remains a substantial challenge. Manual annotation is extremely time-consuming, subject to observer variability, and impractical for large datasets. Although several automated approaches have been proposed, many struggle to generalize across variations in tissue preparation, staining protocols, and imaging conditions. 
 
-This challenge focuses on the accurate segmentation of two biologically meaningful compartments: the axon and the myelin sheath. Reliable delineation of these structures is a prerequisite for deriving key morphometric biomarkers, including axonal diameter, myelin thickness, fiber diameter, and the widely used g-ratio, defined as the ratio between the inner axonal diameter and the total outer fiber diameter. By promoting the development of robust and generalizable segmentation methods, the challenge aims to facilitate large-scale quantitative analyses of white-matter microstructure and accelerate research on neurological disease mechanisms and therapeutic interventions.
+This challenge focuses on **paired instance segmentation** of two topologically linked compartments for each individual fiber: the **axon (`X`)** and its surrounding **myelin sheath (`X + 1`)**. Reliable instance-level delineation of these nested structures is a prerequisite for deriving key morphometric biomarkers per fiber, including axonal diameter, myelin thickness, outer fiber diameter, and the widely used g-ratio, defined as the ratio between the inner axonal diameter and the total outer fiber diameter. By promoting the development of robust and generalizable instance segmentation methods, the challenge aims to facilitate large-scale quantitative analyses of white-matter microstructure and accelerate research on neurological disease mechanisms and therapeutic interventions.
 
 ---
 
@@ -30,6 +30,8 @@ This challenge focuses on the accurate segmentation of two biologically meaningf
 | **Unlabeled Test Dataset Release** | November 9, 2026 (23:59 CET) | Upcoming |
 | **Final Submission Deadline** | November 13, 2026 (23:59 CET) | Upcoming |
 | **Winner Announcement & SIPAIM Session** | SIPAIM Conference | Upcoming |
+
+---
 
 ## 4.Award & Presentation Requirement
 
