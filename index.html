@@ -112,7 +112,7 @@
         </div>
         <div class="hero-chip-card">
           <div class="chip-label">Target Classes</div>
-          <div class="chip-value">Axon &amp; Myelin Sheath (instance segmentation)</div>
+          <div class="chip-value">Axon &amp; Myelin (paired instances)</div>
         </div>
         <div class="hero-chip-card">
           <div class="chip-label">Evaluation Metrics</div>
@@ -325,9 +325,13 @@
             </p>
 
             <div class="spec-pills-row">
-              <span class="spec-pill"><span class="spec-pill-dot dot-axon"></span> Class 1: Axon (Red)</span>
-              <span class="spec-pill"><span class="spec-pill-dot dot-myelin"></span> Class 2: Myelin (Blue)</span>
-              <span class="spec-pill"><span class="spec-pill-dot dot-bg"></span> Class 0: Background</span>
+              <span class="spec-pill"><span class="spec-pill-dot dot-bg"></span> 0: Background</span>
+              <span class="spec-pill"><span class="spec-pill-dot" style="background-color: #94a3b8;"></span>1: Artifacts
+                (Ignored)</span>
+              <span class="spec-pill"><span class="spec-pill-dot dot-axon"></span> ID X (Even ≥ 2): Axon
+                Instance (e.g., 14)</span>
+              <span class="spec-pill"><span class="spec-pill-dot dot-myelin"></span> ID X+1 (Odd ≥ 3): Paired Myelin
+                (e.g., 15)</span>
             </div>
           </div>
 
