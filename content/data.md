@@ -2,7 +2,7 @@
 
 ## 1. Dataset Overview
 
-This dataset comprises a curated collection of **608 minimally processed, high-resolution Transmission Electron Microscopy (TEM) images** acquired from the corpus callosum (white matter) of mouse (*Mus musculus*) brain tissue at the **Paris Brain Institute (Institut du Cerveau - ICM)**.
+This dataset comprises a curated collection of **400 minimally processed, high-resolution Transmission Electron Microscopy (TEM) images** acquired from the corpus callosum (white matter) of mouse (*Mus musculus*) brain tissue at the **Paris Brain Institute (Institut du Cerveau - ICM)**.
 
 The dataset was assembled to support the development and benchmarking of deep-learning and image-processing models for the automatic paired instance segmentation of axons and their surrounding myelin sheaths.
 
@@ -11,8 +11,9 @@ The dataset was assembled to support the development and benchmarking of deep-le
 | **Imaging Modality** | Transmission Electron Microscopy (TEM) |
 | **Anatomical Region** | Corpus callosum (white matter) |
 | **Species** | Mouse (*Mus musculus*) |
-| **Total Images** | $608$ single-channel grayscale micrographs |
-| **Annotated Ground-Truth Subset** | $157$ images ($\approx 25.8\%$ of the collection, expanding progressively) |
+| **Total Images** | 400 single-channel grayscale micrographs |
+| **Training Images** | 266 single-channel grayscale micrographs |
+| **Test Images** | 134 single-channel grayscale micrographs |
 | **Annotation Format** | **Paired Instance Masks (`uint16`):** Individual Axons (`X`) and paired Myelin sheaths (`X + 1`), plus Artifacts (`1`) |
 | **Intended Use** | Supervised, semi-supervised, or self-supervised instance segmentation training & evaluation |
 
