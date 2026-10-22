@@ -36,3 +36,13 @@ This challenge focuses on **paired instance segmentation** of two topologically 
 ## 4.Award & Presentation Requirement
 
 While challenge participation is open to all researchers and students worldwide, at least one member of the winning team must be registered for the **SIPAIM Main Conference (November 18–20, 2026)** or the **SIPAIM Workshop (November 16, 2026)** to officially claim the award and present their methodology during the challenge session.
+
+---
+
+## 5. Software Support & Participant Resources
+
+We are thrilled to announce that **MathWorks (MATLAB)** is supporting our challenge by providing complimentary temporary software licenses to all registered participants! 
+- [Local MATLAB license](https://www.mathworks.com/licensecenter/classroom/5521850/)
+- [Online MATLAB license](https://www.mathworks.com/licensecenter/classroom/5521800/)
+
+---
