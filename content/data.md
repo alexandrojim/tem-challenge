@@ -12,6 +12,7 @@ The dataset was assembled to support the development and benchmarking of deep-le
 | **Anatomical Region** | Corpus callosum (white matter) |
 | **Species** | Mouse (*Mus musculus*) |
 | **Total Images** | 400 (266 train + 134 test) single-channel grayscale micrographs |
+| **Image size** | 4096 x 3008 pixels |
 | **Annotation Format** | **Paired Instance Masks (`uint16`):** Individual Axons (`X`) and paired Myelin sheaths (`X + 1`), plus Artifacts (`1`) |
 | **Intended Use** | Supervised, semi-supervised, or self-supervised instance segmentation training & evaluation |
 
@@ -39,14 +40,14 @@ All micrographs were acquired on a transmission electron microscope operated in 
 | Parameter | Value |
 | :--- | :--- |
 | **Microscope Mode** | TEM — Imaging mode |
-| **Accelerating Voltage** | $100\text{ kV}$ |
-| **Direct Magnification** | $3000\times$ |
+| **Accelerating Voltage** | 100 kV |
+| **Direct Magnification** | 3000x |
 | **Camera System** | AMT NS12 (AMT Camera System) |
-| **Pixel Calibration** | $0.002152\text{ }\mu\text{m/pixel}$ ($\approx 2.15\text{ nm/pixel}$) |
-| **Embedded Scale Bar** | $1\text{ }\mu\text{m}$ ($\approx 465\text{ pixels}$ at stated calibration) |
-| **Exposure & Frame Averaging** | $480\text{ ms} \times 4$ standard frames (averaged for noise reduction) |
-| **Sensor Resolution & Binning** | Binning $= 1$, Gain $= 1$ (full native sensor resolution, no on-sensor pooling) |
-| **Radiometric Response** | Gamma $= 1.00$ (linear response), Normal contrast, Sharpening $=$ None |
+| **Pixel Calibration** | 0.002152 µm/pixel ($\approx$ 2.15 nm/pixel) |
+| **Embedded Scale Bar** | 1 µm ($\approx$ 465 pixels at stated calibration) |
+| **Exposure & Frame Averaging** | 480 ms × 4 standard frames (averaged for noise reduction) |
+| **Sensor Resolution & Binning** | Binning = 1, Gain = 1 (full native sensor resolution, no on-sensor pooling) |
+| **Radiometric Response** | Gamma = 1.00 (linear response), Normal contrast, Sharpening = None |
 
 ### Key Image Characteristics for Modeling
 * **Nanometer-Scale Spatial Resolution:** At $\approx 2.15\text{ nm/pixel}$, the spatial resolution resolves individual myelin lamellae as well as the sharp boundary between the inner myelin sheath and the axoplasm.
