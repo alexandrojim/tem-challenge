@@ -11,9 +11,7 @@ The dataset was assembled to support the development and benchmarking of deep-le
 | **Imaging Modality** | Transmission Electron Microscopy (TEM) |
 | **Anatomical Region** | Corpus callosum (white matter) |
 | **Species** | Mouse (*Mus musculus*) |
-| **Total Images** | 400 single-channel grayscale micrographs |
-| **Training Images** | 266 single-channel grayscale micrographs |
-| **Test Images** | 134 single-channel grayscale micrographs |
+| **Total Images** | 400 (266 train + 134 test) single-channel grayscale micrographs |
 | **Annotation Format** | **Paired Instance Masks (`uint16`):** Individual Axons (`X`) and paired Myelin sheaths (`X + 1`), plus Artifacts (`1`) |
 | **Intended Use** | Supervised, semi-supervised, or self-supervised instance segmentation training & evaluation |
 
