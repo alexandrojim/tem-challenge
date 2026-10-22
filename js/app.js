@@ -23,6 +23,7 @@
     dataContent: document.getElementById("data-content"),
     submissionContent: document.getElementById("submission-content"),
     winnersContent: document.getElementById("winners-content"),
+    acknowledgmentsContent: document.getElementById("acknowledgments-content"),
 
     // Section 1: Registration Form
     regForm: document.getElementById("registration-form"),
@@ -288,6 +289,7 @@
     loadMarkdownFile("content/data.md", DOM.dataContent);
     loadMarkdownFile("content/submission.md", DOM.submissionContent);
     loadMarkdownFile("content/winners.md", DOM.winnersContent);
+    loadMarkdownFile("content/acknowledgments.md", DOM.acknowledgmentsContent);
   }
 
   /**
