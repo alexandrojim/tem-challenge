@@ -26,9 +26,9 @@ This challenge focuses on **paired instance segmentation** of two topologically 
 | Milestone | Date | Status |
 | :--- | :--- | :--- |
 | **Challenge Launch & Data Release** | October 2026 | Open |
-| **Registration Deadline** | November 9, 2026 (23:59 CET) | **Active** |
-| **Unlabeled Test Dataset Release** | November 9, 2026 (23:59 CET) | Upcoming |
-| **Final Submission Deadline** | November 13, 2026 (23:59 CET) | Upcoming |
+| **Registration Deadline** | November 9, 2026 (23:59 CET) | **Closed** |
+| **Unlabeled Test Dataset Release** | November 9, 2026 (23:59 CET) | **Released** |
+| **Final Submission Deadline** | November 13, 2026 (23:59 CET) | **Active** |
 | **Winner Announcement & SIPAIM Session** | SIPAIM Conference | Upcoming |
 
 ---
