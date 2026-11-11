@@ -27,7 +27,7 @@ const CONFIG = {
   // Toggle for Test Dataset release:
   // - false: Button displays "Test Data (Coming Soon)" and is disabled.
   // - true:  Button displays "Download Test Set" and directs participants to TEST_DATA_ONEDRIVE_URL.
-  IS_TEST_DATA_RELEASED: false,
+  IS_TEST_DATA_RELEASED: true,
 
   // ICM OneDrive File Request / Submission portal link for uploading final .zip submissions
   SUBMISSION_ONEDRIVE_URL: "https://instituteicm-my.sharepoint.com/:f:/g/personal/gabriel_jimenez_icm-institute_org/IgBUn2VJHEQDSo-G4YSUENw8AR3PdmdlUzfAfE5fDlGiHxw",
