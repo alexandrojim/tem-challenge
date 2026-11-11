@@ -69,7 +69,7 @@
         DOM.btnTestDownload.href = config.TEST_DATA_ONEDRIVE_URL || "#";
         DOM.btnTestDownload.classList.remove("disabled");
         if (DOM.testDownloadLabel) {
-          DOM.testDownloadLabel.textContent = "Download Test Dataset (ICM OneDrive)";
+          DOM.testDownloadLabel.textContent = "Test Dataset";
         }
       } else {
         DOM.btnTestDownload.removeAttribute("href");
